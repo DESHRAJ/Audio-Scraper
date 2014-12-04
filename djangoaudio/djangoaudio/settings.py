@@ -127,6 +127,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'djangotoolbox',
+    'djangoaudio',
     # Uncomment the next line to enable the admin:
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',

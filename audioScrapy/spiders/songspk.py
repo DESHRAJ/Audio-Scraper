@@ -1,12 +1,12 @@
 from scrapy.spider import Spider
 from scrapy.selector import Selector
 from audioScrapy.items import *
-from dajngoaudio.models import * 
+from djangoaudio.models import * 
 import numpy as np
 
 
 class getNewMovies(Spider):
-	name = "newMoviesList"
+	name = "songspk"
 	start_urls = (
 		'http://www.songspk.name/bollywood-songs-mp3.html',
 		'http://www.songspk.name/indian_pop_remix_songs.html',
@@ -92,11 +92,16 @@ class getNewMovies(Spider):
 
 	def parse(self,response):
 		sel = Selector(response)
-		songName = sel.xpath('//li/div/p/b/a/text()').extract()
-		url = sel.xpath('//li/div/a/@href').extract()
-		author = sel.xpath('//li/div/p/i/text()').extract()
-		title = sel.xpath('//li/div/h1/text()').extract()
-		ziplink = sel.path('//li/div/a/@href').extract()
+		songName = response.xpath('//li/div/p/b/a/text()').extract()
+		url = response.xpath('//li/div/a/@href').extract()
+		author = response.xpath('//li/div/p/i/text()').extract()
+		title = response.xpath('//li/div/h1/text()').extract()
+		# ziplink = response.path('//li/div/a/center/b/@href').extract()
 		# for i in sel, j in songName, k in author:
 		# colllection = numpy.column_stack(songName,url,author)
-		# for i,j,k in zip(songName,url, author)
+		# try:
+		for i,j,k in zip(songName,url, author):
+			print i,j,k
+			songsPkDb1(songName = i,url = j, author = k, title = title).save()
+		# except:
+			# print "error is there"

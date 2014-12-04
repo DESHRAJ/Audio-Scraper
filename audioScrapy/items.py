@@ -7,36 +7,20 @@
 
 import scrapy
 from scrapy.item import Item, Field
-from scrapy.contrib.djangoitem import DjangoItem
-from djangoaudio.models import * 
+# from scrapy.contrib.djangoitem import DjangoItem
+# from djangoaudio.models import * 
 
 class AudioscrapyItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
 
-# class Hk0WeatherItem(Item):
-#   time = Field()
-#   station = Field()
-#   ename = Field()
-#   cname = Field()
-#   temperture = Field()
-#   humidity = Field()
+# class songspk(scrapy.Item):
+# 	title = scrapy.Field()
+# 	author = scrapy.Field()
+# 	songName = scrapy.Field()
+# 	ziplink = scrapy.Field()
+# 	url = scrapy.Field()
 
-# class Hk0RegionalItem(DjangoItem):
-#   django_model = WeatherData
-
-# class Hk0TropicalItem(Item):
-#   time = Field()
-#   postime = Field()
-#   x = Field()
-#   y = Field()
-#   category = Field()
-#   windspeed = Field()
-#   tctype = Field()
-
-# class Hk0RainfallItem(DjangoItem):
-#   django_model = RainfallData
-
-# class ReportItem(DjangoItem):
-#   django_model = ReportData 
+# class songspk(DjangoItem):
+# 	django_model = songsPkDb
