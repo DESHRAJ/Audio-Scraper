@@ -7,10 +7,15 @@
 #
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
-import os, sys
-os.environ.setdefault("DJANGO_SETTINGS_MODULE","djangoaudio.settings")
-path = os.path.join(os.path.dirname(__file__),'../djangoaudio')
-sys.path.append(os.path.abspath(path))
+# import os, sys
+# os.environ.setdefault("DJANGO_SETTINGS_MODULE","djangoaudio.settings")
+# path = os.path.join(os.path.dirname(__file__),'../djangoaudio')
+# sys.path.append(os.path.abspath(path))
+import sys
+sys.path.append('/home/deshraj/Documents/audioScraper/djangoaudio')
+
+import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'djangoaudio.settings'
 from django.conf import settings
 
 BOT_NAME = 'audioScrapy'

@@ -3,7 +3,11 @@ from scrapy.selector import Selector
 from audioScrapy.items import *
 from djangoaudio.models import * 
 import numpy as np
+import sys
+sys.path.append('/home/deshraj/Documents/audioScraper/djangoaudio')
 
+import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'djangoaudio.settings'
 
 class getNewMovies(Spider):
 	name = "songspk"
@@ -101,7 +105,7 @@ class getNewMovies(Spider):
 		# colllection = numpy.column_stack(songName,url,author)
 		# try:
 		for i,j,k in zip(songName,url, author):
-			print i,j,k
-			songsPkDb1(songName = i,url = j, author = k, title = title).save()
+			# print i,j,k
+			songs(songName = i,url = j, author = k, title = title).save()
 		# except:
 			# print "error is there"
