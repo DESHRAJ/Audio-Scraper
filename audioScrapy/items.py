@@ -7,13 +7,13 @@
 
 import scrapy
 from scrapy.item import Item, Field
-# from scrapy.contrib.djangoitem import DjangoItem
-# from djangoaudio.models import * 
+from scrapy.contrib.djangoitem import DjangoItem
+from djangoaudio.models import songs
 
-class AudioscrapyItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+# class AudioscrapyItem(scrapy.Item):
+#     # define the fields for your item here like:
+#     # name = scrapy.Field()
+#     pass
 
 # class songspk(scrapy.Item):
 # 	title = scrapy.Field()
@@ -22,5 +22,5 @@ class AudioscrapyItem(scrapy.Item):
 # 	ziplink = scrapy.Field()
 # 	url = scrapy.Field()
 
-# class songspk(DjangoItem):
-# 	django_model = songsPkDb
+class pksongs(DjangoItem):
+	django_model = songs

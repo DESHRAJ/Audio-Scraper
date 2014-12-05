@@ -1,3 +1,4 @@
+# zz = 0
 from scrapy.spider import Spider
 from scrapy.selector import Selector
 from audioScrapy.items import *
@@ -93,19 +94,36 @@ class getNewMovies(Spider):
 		'http://songspk.name/indian-pop-remix/raja-natwarlal-2014-mp3-songs.html',
 		'http://songspk.name/indian-mp3-songs/singham-retuns-singham2-2014-mp3-songs.html',
 		)
-
 	def parse(self,response):
+		# zz=0
 		sel = Selector(response)
+		item = pksongs()
+		# if response.xpath('//table[@id="table130"]//td/a/text()').extract() is []:
 		songName = response.xpath('//li/div/p/b/a/text()').extract()
 		url = response.xpath('//li/div/a/@href').extract()
 		author = response.xpath('//li/div/p/i/text()').extract()
 		title = response.xpath('//li/div/h1/text()').extract()
-		# ziplink = response.path('//li/div/a/center/b/@href').extract()
+		# else:
+		# 	songName = response.xpath('//table[@id="table130"]//td/a/text()').extract()
+		# 	url = response.xpath('//table[@id="table190"]//tr/td//a/@href').extract()
+		# 	author = response.xpath('//table[@id="table131"]//tr/td/p/font/b/text()').extract()
+		# 	title = response.xpath('//table[@id="table131"]//tr/td/p/font/b/text()').extract()
+			# ziplink = response.path('//li/div/a/center/b/@href').extract()
 		# for i in sel, j in songName, k in author:
 		# colllection = numpy.column_stack(songName,url,author)
 		# try:
 		for i,j,k in zip(songName,url, author):
-			# print i,j,k
-			songs(songName = i,url = j, author = k, title = title).save()
+			# print i
+			# print j
+			# print k
+			item['title'] = title 
+			item['songName'] = i
+			item['url'] = j
+			item['author'] = k
+		# print zz,"\n \n "
+		# zz = zz+1
+			# item.save()
+			# yield item
+			# songs(songName = i,url = j, author = k, title = title).save()
 		# except:
 			# print "error is there"
