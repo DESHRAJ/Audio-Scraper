@@ -11,7 +11,14 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
 import random,string
+from djangoaudio.models import * 
 
 
 def home(request):
-	return HttpResponse("<h1>Under Construction... Will be there very soon </h1>")
+	return render_to_response('index.html')
+	# return HttpResponse("<h1>Under Construction... Will be there very soon </h1>")
+
+def songspk(request):
+	# a = None
+	a = songs.objects.all()
+	return render_to_response('songspk.html',{'a':a},context_instance=RequestContext(request))

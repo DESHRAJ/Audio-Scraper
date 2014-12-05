@@ -14,6 +14,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'djangoaudio.views.home', name='home'),
+    url(r'songspk', 'djangoaudio.views.songspk', name='songspk'),
     # url(r'^djangoaudio/', include('djangoaudio.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

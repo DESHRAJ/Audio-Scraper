@@ -116,13 +116,13 @@ class getNewMovies(Spider):
 			# print i
 			# print j
 			# print k
-			item['title'] = title 
-			item['songName'] = i
-			item['url'] = j
-			item['author'] = k
+			item['title'] = str(title) 
+			item['songName'] = str(i)
+			item['url'] = str(j)
+			item['author'] = str(k)
 		# print zz,"\n \n "
 		# zz = zz+1
-			# item.save()
+			item.save()
 			# yield item
 			# songs(songName = i,url = j, author = k, title = title).save()
 		# except:
