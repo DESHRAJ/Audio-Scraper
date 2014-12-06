@@ -38,12 +38,10 @@
           <div >
           {% for i in a %}
           <div style="background: none repeat scroll 0% 0% rgb(81, 96, 107);"  >
-            <!-- <h2 class="cover-heading">Download Songs Very Easily</h2> -->
             <p class="lead" style="font-family:ubuntu">Title: {{ i.title }}<br>
             Author: {{ i.author }}<br>
             <a href="{{ i.url }}" class="btn btn-lg btn-default">Download: {{ i.songName }}</a></p>
           </div>
-          <!-- <br> -->
           {% endfor %}
 
           <div >

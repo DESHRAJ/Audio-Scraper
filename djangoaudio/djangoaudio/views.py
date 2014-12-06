@@ -15,6 +15,15 @@ from djangoaudio.models import *
 
 
 def home(request):
+	c = {}
+	c.update(csrf(request))
+	if request.GET:
+		search = request.GET.get('search')
+		if search:
+			cc1=songs.objects.filter(songName__icontains=search)
+			cc2=songs.objects.filter(title__icontains=search)
+			cc3=songs.objects.filter(author__icontains=search)
+		return render_to_response('result.html',{'cc1':cc1,'cc2':cc2,'cc3':cc3},context_instance=RequestContext(request))
 	return render_to_response('index.html')
 	# return HttpResponse("<h1>Under Construction... Will be there very soon </h1>")
 

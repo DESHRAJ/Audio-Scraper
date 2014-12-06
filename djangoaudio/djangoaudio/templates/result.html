@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Download Songs</title>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/static/css/cover.css" rel="stylesheet">
+    <script src="/static/js/ie-emulation-modes-warning.js"></script><style type="text/css"></style>
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container" >
+
+          <div class="masthead" style="position:static">
+            <div class="inner">
+              <h1 class="masthead-brand" style="font-family:ubuntu; color:#ff6300"><b>SongsPk Songs</b></h1>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li style="font-family:ubuntu; color:#ff6300"><a href="/" style="font-family:ubuntu; color:#ff6300">Home</a></li>
+                  <li class="active"><a href="#"style="font-family:ubuntu; color:#ff6300">Songspk</a></li>
+                  <li><a href="/djmazza" style="font-family:ubuntu; color:#ff6300">DjMazza</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <br><br><br>
+          {% if cc1 or cc2 or cc3 %}
+          {% for i in cc1 %}
+          <div style="background: none repeat scroll 0% 0% rgb(81, 96, 107);"  >
+            <p class="lead" style="font-family:ubuntu">Title: {{ i.title }}<br>
+            Author: {{ i.author }}<br>
+            <a href="{{ i.url }}" class="btn btn-lg btn-default">Download: {{ i.songName }}</a></p>
+          </div>
+          {% endfor %}
+          {% for i in cc2 %}
+          <div style="background: none repeat scroll 0% 0% rgb(81, 96, 107);"  >
+            <p class="lead" style="font-family:ubuntu">Title: {{ i.title }}<br>
+            Author: {{ i.author }}<br>
+            <a href="{{ i.url }}" class="btn btn-lg btn-default">Download: {{ i.songName }}</a></p>
+          </div>
+          {% endfor %}
+          {% for i in cc3 %}
+          <div style="background: none repeat scroll 0% 0% rgb(81, 96, 107);"  >
+            <p class="lead" style="font-family:ubuntu">Title: {{ i.title }}<br>
+            Author: {{ i.author }}<br>
+            <a href="{{ i.url }}" class="btn btn-lg btn-default">Download: {{ i.songName }}</a></p>
+          </div>
+          {% endfor %}
+          {% else %}
+          No such match found in the database. 
+          {% endif %}
+          <div >
+            <div class="inner">
+              <p style="font-family:ubuntu">Developed By  <a href="http://www.deshraj.in"><b><u>Deshraj Yadav</u></b></a></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/docs.min.js"></script>
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" title="" data-original-title="Copy to clipboard">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="/assets/flash/ZeroClipboard.swf?noCache=1417777503432">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">         <embed src="/assets/flash/ZeroClipboard.swf?noCache=1417777503432" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" scale="exactfit">                </object></div></body></html>
