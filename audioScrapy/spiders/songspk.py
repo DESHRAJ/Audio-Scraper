@@ -4473,11 +4473,9 @@ class getNewMovies(Spider):
 		'http://songspk.name/anamika_hai_dil_deewana.html',
 		)
 	def parse(self,response):
-		# handle_httpstatus_list = [301, 302, 303]
-		# zz=0
 		sel = Selector(response)
 		item = pksongs()
-		if response.xpath('//table[@id="table130"]//td/a/text()').extract() is []:
+		if len(response.xpath('//table[@id="table130"]//td/a/text()').extract()) is 0:
 			songName = response.xpath('//li/div/p/b/a/text()').extract()
 			url = response.xpath('//li/div/p/b/a/@href').extract()
 			author = response.xpath('//li/div/p/i/text()').extract()
@@ -4491,18 +4489,68 @@ class getNewMovies(Spider):
 		# for i in sel, j in songName, k in author:
 		# colllection = numpy.column_stack(songName,url,author)
 		# try:
-		title = str(title)
-		title = title.replace('\\n','')
-		title = title.replace('\\t','')
-		title = title[3:-2]
+		title = str(title[0])
+		title = title.replace(' \n\t\t\t\t\t\t',' ')
+		title = title.replace('\n\t\t\t\t\t\t',' ')
+		# title = title[3:-2]
+		auth = []
+		for authors in author:
+			authors = str(authors)
+			authors = authors.replace(' \n\t\t\t\t\t\t',' ')
+			auth.append(authors)
 
+
+		f = open('newSongsList2.csv','a')
+		if len(author)==1:
+			for i,j in zip(songName,url):
+				print str(title)
+				# print "-------------------------------------"
+				# i = re.sub(' +',' ',i)
+				i = str(i)
+				i = i.replace('\n\t\t\t\t\t\t\t\t\t','')
+				i = i.replace('	','')
+				print str(i)
+				# print "-------------------------------------"
+				print str(j)
+				# print "-------------------------------------"
+			# 	# # print xx
+			# 	# # xx = xx+1
+				print str(auth[0])
+				# item['title'] = str(title) 
+				# item['songName'] = str(i)
+				# item['url'] = str(j)
+				# item['author'] = str(auth[0])
+				f.write(title+","+i+","+j+","+auth[0]+"\n")	
+				# print "***************************************"
+
+		else:
+			for i,j,k in zip(songName,url,auth):
+				print str(title)
+				# print "-------------------------------------"
+				# i = re.sub(' +',' ',i)
+				i = str(i)
+				i = i.replace('\n\t\t\t\t\t\t\t\t\t','')
+				i = i.replace('	','')
+				print str(i)
+				# print "-------------------------------------"
+				print str(j)
+				# print "-------------------------------------" 	
+			# # print xx
+			# 	# # xx = xx+1
+				print str(k)
+				# item['title'] = str(title) 
+				# item['songName'] = str(i)
+				# item['url'] = str(j)
+				# item['author'] = str(k)		# 	print
+				f.write(title+","+i+","+j+","+k+"\n") 
+		f.close()
+				# print "***************************************"
 		# author = str(author)
 		# author = author.replace('\\n','')
 		# author = author.replace('\\t','')
 		# author = author[3:-2]
 		# xx = 0
-		f = open('newSongsList1.txt','a')
-		for i,j,k in zip(songName,url,author):
+		# for i,j,k in zip(songName,url,author):
 			# print title
 			# print i
 			# print j
@@ -4513,7 +4561,7 @@ class getNewMovies(Spider):
 			# item['songName'] = str(i)
 			# item['url'] = str(j)
 			# item['author'] = str(k)
-			f.write(title+","+i+","+j+","+k+"\n")
+			# f.write(title+","+i+","+j+","+k+"\n")
 			# item.save()
 		# print zz,"\n \n "
 		# zz = zz+1

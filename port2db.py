@@ -29,20 +29,25 @@ from djangoaudio.models import *
 # 	   'mongodb://%s:%s@%s/%s' \
 # 	   % ('fratmart', 'fratmartdb', 'localhost', 'admin')
 # mongoengine.connect('admin', host=_MONGODB_DATABASE_HOST)
-f = open('songslist.csv', 'r')
+f = open('newSongsList2.csv', 'r')
 i=0
 r = csv.reader(f)
-for row in r :
-	if(i>=667):
-		try:
-		# title = row[0]
+try:
+	for row in r :
+		i = i+1
+		if(i>=24658):
+			# print row[0]
+			# print row[1]
+			# print row[2]
+			# print row[3]
+	# title = row[0]
 			print i
 			songs.objects.create(title = row[0], songName=row[1],url = row[2],author = row[3]).save()
-			print "success " + row[1]
-		except:
-			print "error "+ row[1]
-	i = i+1
+			# print "success " + row[1]
+except:
+	print "error in line "+ str(i)
+	pass
 
 
-# finally:	
-# f.close()
+finally:	
+	f.close()

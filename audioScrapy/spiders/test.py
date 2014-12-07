@@ -50,12 +50,14 @@ class getNewMovies(Spider):
 		title = title.replace('\n\t\t\t\t\t\t',' ')
 		# title = title[3:-2]
 		title = re.sub(' +',' ',title)
+		auth = []
 		for authors in author:
 			authors = str(authors)
 			authors = authors.replace(' \n\t\t\t\t\t\t',' ')
+			auth.append(authors)
 			# authors = authors.replace('\\t','')
 			# authors = authors[3:-2]
-			authors = re.sub(' +',' ',authors)
+			# authors = re.sub(' +',' ',authors)
 		# xx = 0
 		# f = open('newSongsList1.txt','a')
 		# print title
@@ -67,20 +69,26 @@ class getNewMovies(Spider):
 				print str(title)
 				# print "-------------------------------------"
 				# i = re.sub(' +',' ',i)
+				i = str(i)
+				i = i.replace('\n\t\t\t\t\t\t\t\t\t','')
+				i = i.replace('	','')
 				print str(i)
 				# print "-------------------------------------"
 				print str(j)
 				# print "-------------------------------------"
 			# 	# # print xx
 			# 	# # xx = xx+1
-				print str(author)
+				print str(auth[0])
 				# print "***************************************"
 
 		else:
-			for i,j,k in zip(songName,url,author):
+			for i,j,k in zip(songName,url,auth):
 				print str(title)
 				# print "-------------------------------------"
-				i = re.sub(' +',' ',i)
+				# i = re.sub(' +',' ',i)
+				i = str(i)
+				i = i.replace('\n\t\t\t\t\t\t\t\t\t','')
+				i = i.replace('	','')
 				print str(i)
 				# print "-------------------------------------"
 				print str(j)
